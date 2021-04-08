@@ -1,0 +1,6 @@
+.header__central_btn{
+    width: 332px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

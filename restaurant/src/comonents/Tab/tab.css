@@ -6,6 +6,9 @@
     border-style: solid;
     border-radius: 20px;
 }
+.tab_active{
+    border-color: #5374FF;
+}
 
 .tab:hover{
     border-color: #5374FF;

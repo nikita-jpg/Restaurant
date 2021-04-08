@@ -1,6 +1,6 @@
 .header{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     height: 40px;
     background-color: #FAFAFA;
     border-radius: 20px;
@@ -9,6 +9,8 @@
 
 .header_inside{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
