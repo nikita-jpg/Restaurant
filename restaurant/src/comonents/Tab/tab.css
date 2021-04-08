@@ -1,0 +1,21 @@
+.tab{
+    width: 100px;
+    height: 30px;
+    background-color: #F2F5F8;
+    border: 2px transparent;
+    border-style: solid;
+    border-radius: 20px;
+}
+
+.tab:hover{
+    border-color: #5374FF;
+    cursor: pointer;
+}
+p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    color: #5374FF;
+    margin: 0;
+}
