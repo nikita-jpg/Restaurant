@@ -1,6 +1,7 @@
 import '../Dish/dish.css'
-const Dish = () => (
+const Dish = ({inf, click}) => (
     <div className='dish'>
+        <p>{inf}</p>
     </div>
 );
 
