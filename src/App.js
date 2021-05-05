@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import './App.css';
 import { Header } from './comonents/Header/Header';
+import { Menu } from "./comonents/Menu/Menu";
+import {TabContent} from './comonents/TabContent/TabContent';
 
 function App() {
-  const TabContent = ({ title, content }) => (
-    <div className="tabcontent">
-      <h3>{title}</h3>
-      <p>{content}</p> 
-    </div>
-  );
 
   const items = [
-    { title: 'London', content: 'London is the capital city of England.' },
-    { title: 'Paris', content: 'Paris is the capital of France.' },
-    { title: 'Tokyo', content: 'Tokyo is the capital of Japan.' },
+    { title: 'Меню', content: <Menu/> },
+    { title: 'Paris', content: <Menu/>},
+    { title: 'Tokyo', content: <Menu/> },
   ];
 
   // const items_names = items.map.

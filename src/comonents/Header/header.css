@@ -1,7 +1,8 @@
 .header{
+    height: 40px;
     width: 100%;
     max-width: 1400px;
-    height: 40px;
+    box-sizing: border-box;
     background-color: #FAFAFA;
     border-radius: 20px;
     margin: 20px auto 0 auto;
