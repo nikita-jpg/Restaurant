@@ -1,7 +1,9 @@
 import '../Dish/dish.css'
-const Dish = ({inf, click}) => (
+const Dish = ({title, description, img}) => (
     <div className='dish'>
-        <p>{inf}</p>
+        <p>{title}</p>
+        <p>{description}</p>
+        <img src={img}></img>
     </div>
 );
 

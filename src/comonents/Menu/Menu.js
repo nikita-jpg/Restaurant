@@ -11,16 +11,24 @@ function Menu() {
 
     useEffect(() => {
     const apiUrl = "http://localhost:8080/menu";
+
+    // axios
+    // .get(url, {
+    //   responseType: 'arraybuffer'
+    // })
+    // .then(response => Buffer.from(response.data, 'binary').toString('base64'))
+
+
     axios.get(apiUrl).then((resp) => {
         const allPersons = resp.data;
-        setAppState(allPersons.lastName);
+        setAppState(allPersons);
         });
     });
 
 
     return(
         <div className="menu">
-            <Dish inf={appState}></Dish>
+            <Dish title={appState.title} description={appState.description} img={appState.img}></Dish>
             {/* <Dish></Dish>
             <Dish></Dish> */}
         </div>
