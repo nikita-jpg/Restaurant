@@ -25,12 +25,13 @@ function Menu() {
         });
     });
 
+    const backgrondImg = {backgroundImage: `url(${appState.img})`}
 
     return(
         <div className="menu">
-            <Dish title={appState.title} description={appState.description} img={appState.img}></Dish>
-            {/* <Dish></Dish>
-            <Dish></Dish> */}
+            <Dish title={appState.title} description={appState.description} img={backgrondImg}></Dish>
+            <Dish title={appState.title} description={appState.description} img={backgrondImg}></Dish>
+            <Dish title={appState.title} description={appState.description} img={backgrondImg}></Dish>
         </div>
     )
 };
