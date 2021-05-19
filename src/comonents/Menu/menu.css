@@ -1,7 +1,6 @@
 .menu{
     height: 100%;
     width: 100%;
-    max-width: 1400px;
 
     display: flex;
     flex-direction: row;

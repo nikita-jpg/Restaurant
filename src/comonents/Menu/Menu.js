@@ -8,10 +8,9 @@ import '../Menu/menu.css'
 function Menu() {
 
     const [appState, setAppState] = useState("defolt");
-
-    useEffect(() => {
     const apiUrl = "http://localhost:8080/menu";
 
+    useEffect(() => {
     // axios
     // .get(url, {
     //   responseType: 'arraybuffer'
@@ -21,11 +20,12 @@ function Menu() {
 
     axios.get(apiUrl).then((resp) => {
         const allPersons = resp.data;
+        // console.log(allPersons)
         setAppState(allPersons);
         });
     });
 
-    const backgrondImg = {backgroundImage: `url(${appState.img})`}
+    const backgrondImg = {backgroundImage: `url(${apiUrl + '/' + appState.id_img})`}
 
     return(
         <div className="menu">
