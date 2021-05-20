@@ -7,7 +7,7 @@ import '../Menu/menu.css'
 
 function Menu() {
 
-    const [appState, setAppState] = useState("defolt");
+    const [appState, setAppState] = useState([]);
     const apiUrl = "http://localhost:8080/menu";
 
     useEffect(() => {
@@ -19,19 +19,19 @@ function Menu() {
 
 
     axios.get(apiUrl).then((resp) => {
-        const allPersons = resp.data;
-        // console.log(allPersons)
-        setAppState(allPersons);
+        const allDishes = resp.data;
+        // console.log(allDishes)
+        setAppState(allDishes);
         });
     });
 
-    const backgrondImg = {backgroundImage: `url(${apiUrl + '/' + appState.id_img})`}
+    // const backgrondImg = {backgroundImage: `url(${apiUrl + '/' + appState.id})`}
 
     return(
         <div className="menu">
-            <Dish title={appState.title} description={appState.description} img={backgrondImg}></Dish>
-            <Dish title={appState.title} description={appState.description} img={backgrondImg}></Dish>
-            <Dish title={appState.title} description={appState.description} img={backgrondImg}></Dish>
+            {appState.map(dish => (
+                <Dish title={dish.title} description={dish.description} img={{backgroundImage: `url(${apiUrl + '/' + dish.id})`}}></Dish>
+            ))}
         </div>
     )
 };
