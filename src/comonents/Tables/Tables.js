@@ -11,7 +11,7 @@ const Tables = () =>{
     const uriTables = "http://localhost:8080/booking/getRecord?date="
 
     const [value, onChange] = useState(new Date());
-    const [tables, setAppState] = useState(new Map());
+    const [tables, setAppState] = useState([]);
 
     const onDateChange = value => {
         onChange(value)
@@ -27,11 +27,11 @@ const Tables = () =>{
 
     return(
     <div className="tables">
-        <div className="tables__content">
         <DatePicker
             onChange={onDateChange}
             value={value}
             format={"yyyy.MM.dd"}/>
+        <div className="tables__content">
             {tables.map(table => (
                 <Table></Table>
             ))}
