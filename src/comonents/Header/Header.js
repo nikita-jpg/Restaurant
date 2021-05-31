@@ -10,8 +10,8 @@ const Header = ({tabsNames, setTab, activeNumber}) => {
       <div className="header header_inside">
           <img src={logo} className="header__logo"/>
           <div className="header__central_btn">
-
-              {tabsNames.map((n, i) => (
+              {tabsNames.slice(0, tabsNames.length-1)
+              .map((n, i) => (
                   <Tab 
                   text={n.title} 
                   setState={setTab}
@@ -20,7 +20,11 @@ const Header = ({tabsNames, setTab, activeNumber}) => {
                   ></Tab>
               ))}
           </div>
-          <Tab text="Бронь"></Tab>
+                 <Tab
+                 text={tabsNames[tabsNames.length-1].title} 
+                 setState={setTab}
+                 index={tabsNames.length-1}
+                 isActive={(tabsNames.length-1) === activeNumber ? true : false}></Tab>
       </div>
     )
 }

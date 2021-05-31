@@ -9,7 +9,7 @@ function App() {
   const items = [
     { title: 'Меню', content: <Menu/> },
     { title: 'Paris', content: <Menu/>},
-    { title: 'Tokyo', content: <Menu/> },
+    { title: 'Бронь', content: <Menu/> },
   ];
 
   // const items_names = items.map.
