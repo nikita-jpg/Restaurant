@@ -11,21 +11,12 @@ function Menu() {
     const apiUrl = "http://localhost:8080/menu";
 
     useEffect(() => {
-    // axios
-    // .get(url, {
-    //   responseType: 'arraybuffer'
-    // })
-    // .then(response => Buffer.from(response.data, 'binary').toString('base64'))
-
 
     axios.get(apiUrl).then((resp) => {
         const allDishes = resp.data;
-        // console.log(allDishes)
         setAppState(allDishes);
         });
     });
-
-    // const backgrondImg = {backgroundImage: `url(${apiUrl + '/' + appState.id})`}
 
     return(
         <div className="menu">
