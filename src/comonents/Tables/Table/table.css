@@ -1,0 +1,14 @@
+.table{
+    width: 100px;
+    height: 100px;
+
+    background-color: #F2F5F8;
+    border-radius: 10px;
+    border: 2px transparent;
+    border-style: solid;
+}
+
+.table:hover{
+    border-color: #5374FF;
+    cursor: pointer;
+}

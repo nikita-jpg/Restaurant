@@ -1,0 +1,10 @@
+.tables{
+    width: auto;
+    height: auto;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+}
