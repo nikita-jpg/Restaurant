@@ -3,6 +3,7 @@ import '../Tables/tables__content.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-date-picker';
 import { Table } from './Table/Table'
+import { format } from "date-fns";
 import axios from 'axios';
 
 
@@ -11,17 +12,16 @@ const Tables = () =>{
     const tables = []
 
     const [value, onChange] = useState(new Date());
-    let strDate = value.toLocaleString().slice(0,value.toLocaleString().indexOf(","))
-    // strDate = [...strDate].reduce((prev,next)=>next+prev)
 
     const onDateChange = value => {
         onChange(value)
-        console.log(strDate)
 
-        axios.get(uriTables + value.value).then((resp) =>{
-            const allTables = resp.data;
-            console.log(allTables)
-        })
+        if(value!=null){
+            axios.get(uriTables + format(value,"yyyy.MM.dd")).then((resp) =>{
+                const allTables = resp.data;
+                console.log(allTables)
+            })
+        }
     }
 
 
