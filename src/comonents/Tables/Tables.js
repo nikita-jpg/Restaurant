@@ -9,9 +9,9 @@ import axios from 'axios';
 
 const Tables = () =>{
     const uriTables = "http://localhost:8080/booking/getRecord?date="
-    const tables = []
 
     const [value, onChange] = useState(new Date());
+    const [tables, setAppState] = useState(new Map());
 
     const onDateChange = value => {
         onChange(value)
@@ -19,26 +19,22 @@ const Tables = () =>{
         if(value!=null){
             axios.get(uriTables + format(value,"yyyy.MM.dd")).then((resp) =>{
                 const allTables = resp.data;
-                console.log(allTables)
+                setAppState(allTables)
+                console.log(tables)
             })
         }
     }
 
-
-    for(let i=0;i<40;i++){
-        tables.push(<Table></Table>)
-    }
-
-
     return(
     <div className="tables">
         <div className="tables__content">
-            {/* {tables} */}
-            <DatePicker
+        <DatePicker
             onChange={onDateChange}
             value={value}
-            format={"yyyy.MM.dd"}
-            />
+            format={"yyyy.MM.dd"}/>
+            {tables.map(table => (
+                <Table></Table>
+            ))}
         </div>
     </div>
     )
