@@ -12,15 +12,15 @@ import axios from 'axios';
 const Tables = () =>{
     const uriTables = "http://localhost:8080/booking/getRecord?date="
 
-    const [value, onChange] = useState(new Date())
+    const [date, onChange] = useState(new Date())
     const [tables, setAppState] = useState([])
-    const [modal, setModal] = useState({isOpen: false, tableId: 0, freeTime: []})
+    const [modal, setModal] = useState({isOpen: false, tableId: 0, freeTime: [], date: ""})
 
-    const onDateChange = value => {
-        onChange(value)
+    const onDateChange = date => {
+        onChange(date)
 
-        if(value!=null){
-            axios.get(uriTables + format(value,"yyyy.MM.dd")).then((resp) =>{
+        if(date!=null){
+            axios.get(uriTables + format(date,"yyyy.MM.dd")).then((resp) =>{
                 const allTables = resp.data;
                 setAppState(allTables)
             })
@@ -33,11 +33,11 @@ const Tables = () =>{
         <Modal modal={modal} setModal={setModal}></Modal>
         <DatePicker
             onChange={onDateChange}
-            value={value}
+            value={date}
             format={"yyyy.MM.dd"}/>
         <div className="tables__content">
             {tables.map(table => (
-                <Table number={table.tableId} date = {table.freeTime} setModal={setModal}></Table>
+                <Table number={table.tableId} date={format(date,"yyyy.MM.dd")} freeTime = {table.freeTime} setModal={setModal}></Table>
             ))}
         </div>
     </div>

@@ -1,8 +1,8 @@
 import '../Table/table.css'
-const Table = ({number,date, setModal}) =>{
+const Table = ({number, date, freeTime, setModal}) =>{
 
     return(
-    <div className="table" onClick={() => setModal({isOpen: true, tableId: number, freeTime: date})}>
+    <div className="table" onClick={() => setModal({isOpen: true, tableId: number, date: date, freeTime: freeTime})}>
         <div className="table__number" >{number}</div>
     </div>
     )
