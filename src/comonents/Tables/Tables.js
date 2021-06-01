@@ -19,8 +19,8 @@ const Tables = () =>{
         if(value!=null){
             axios.get(uriTables + format(value,"yyyy.MM.dd")).then((resp) =>{
                 const allTables = resp.data;
+                console.log(allTables)
                 setAppState(allTables)
-                console.log(tables)
             })
         }
     }
@@ -33,7 +33,7 @@ const Tables = () =>{
             format={"yyyy.MM.dd"}/>
         <div className="tables__content">
             {tables.map(table => (
-                <Table></Table>
+                <Table number={table.tableId}></Table>
             ))}
         </div>
     </div>
