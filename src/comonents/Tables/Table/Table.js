@@ -1,9 +1,13 @@
 import '../Table/table.css'
-const Table = (number) =>{
-    console.log(number)
+const Table = ({number, modalPage}) =>{
+
+    // const openModalPage = () => {
+    //     modalPage(true)
+    // }
+
     return(
     <div className="table">
-        <div className="table__number">{number.number}</div>
+        <div className="table__number" >{number}</div>
     </div>
     )
 }
