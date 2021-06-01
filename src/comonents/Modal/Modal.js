@@ -19,7 +19,7 @@ const Modal = ({modal, setModal}) => {
     // }
 
     const sendRecord = () => {
-        // console.log(record)
+        console.log(modal.freeTime)
         axios({
             method: 'get',
             url: makeRecordUri,
@@ -36,12 +36,43 @@ const Modal = ({modal, setModal}) => {
     }
 
     return(
-        <div className={modal.isOpen ? "modal__background modal_active" : "modal__background"} onClick={() => setModal({isOpen: false})}>
+        <div className={modal.isOpen ? "modal__background modal_active" : "modal__background"} onClick={() => setModal({isOpen: false, freeTime: []})}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
-                <input value={inputName} onChange={(event) => setName(event.target.value)}></input>
-                <input value={inputSecondName} onChange={(event) => setSecondName(event.target.value)}></input>
-                <input value={inputTelNumber} onChange={(event) => setTelNumber(event.target.value)}></input>
-                <button onClick={sendRecord}></button>
+                <div className="modal__input">
+                    <p className="modal__input__p">Введите ваше имя</p>
+                    <input className="modal__input__input" value={inputName} onChange={(event) => setName(event.target.value)}></input>
+                </div>
+
+                <div className="modal__input">
+                    <p className="modal__input__p">Введите вашу фамилию</p>
+                    <input className="modal__input__input" value={inputSecondName} onChange={(event) => setSecondName(event.target.value)}></input>
+                </div>
+
+                <div className="modal__input">
+                    <p className="modal__input__p">Введите ваш номер телефона</p>
+                    <input className="modal__input__input" value={inputTelNumber} onChange={(event) => setTelNumber(event.target.value)}></input>
+                </div>
+
+                <div>
+                <p className="modal__input__p" style={{marginTop: '20px'}}>Выберете время</p>
+                <div className="modal__time_array">
+                    {modal.freeTime.map(time =>(
+                        <p className="modal__time_array__p">{time}</p>
+                    ))}
+                </div>
+                <div>
+                    <div className="modal__input">
+                        <p className="modal__input__p">Начало</p>
+                        <input className="modal__input__input" value={inputTelNumber} onChange={(event) => setTelNumber(event.target.value)}></input>
+                    </div>
+                    <div className="modal__input">
+                        <p className="modal__input__p">Конец</p>
+                        <input className="modal__input__input" value={inputTelNumber} onChange={(event) => setTelNumber(event.target.value)}></input>
+                    </div>
+                </div>
+                </div>
+
+                <button className="modal__btn" onClick={sendRecord}>Отправить</button>
             </div>
         </div>
     )
