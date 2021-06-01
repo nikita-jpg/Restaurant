@@ -14,7 +14,7 @@ const Tables = () =>{
 
     const [value, onChange] = useState(new Date())
     const [tables, setAppState] = useState([])
-    const [modalIsOpen, setModal] = useState(true)
+    const [modal, setModal] = useState({isOpen: false, tableId: 0, freeTime: []})
 
     const onDateChange = value => {
         onChange(value)
@@ -27,16 +27,17 @@ const Tables = () =>{
         }
     }
 
+
     return(
     <div className="tables">
-        <Modal isOpen={modalIsOpen} setOpen={setModal}></Modal>
+        <Modal modal={modal} setModal={setModal}></Modal>
         <DatePicker
             onChange={onDateChange}
             value={value}
             format={"yyyy.MM.dd"}/>
         <div className="tables__content">
             {tables.map(table => (
-                <Table number={table.tableId}></Table>
+                <Table number={table.tableId} date = {table.freeTime} setModal={setModal}></Table>
             ))}
         </div>
     </div>

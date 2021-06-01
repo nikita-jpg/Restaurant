@@ -1,12 +1,8 @@
 import '../Table/table.css'
-const Table = ({number, modalPage}) =>{
-
-    // const openModalPage = () => {
-    //     modalPage(true)
-    // }
+const Table = ({number,date, setModal}) =>{
 
     return(
-    <div className="table">
+    <div className="table" onClick={() => setModal({isOpen: true, tableId: number, freeTime: date})}>
         <div className="table__number" >{number}</div>
     </div>
     )
