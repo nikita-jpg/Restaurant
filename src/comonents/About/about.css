@@ -1,8 +1,6 @@
 .About{
     width: 100%;
     height: auto;
-    background-color: var(--main-el-color);
-    border-radius: 20px;
 }
 .About__discounts{
     max-width: 1400px;
@@ -10,22 +8,28 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    background-color: var(--main-el-color);
+    border-radius: 20px;
 }
-.About__discount-block{
+.About__discount__block{
     display: flex;
     flex-direction: row;
     gap:10px;
     width: 30%;
-    text-align: start;
+    min-width: 280px;
 }
-.About__title_bold{
+.About__title{
+    text-align: start;
     font-size: larger;
     line-height: 1.5;
     font-weight: 600;
     color: #3A3532;
 }
-.About__title_normal{
-    font-size: smaller;
+.About__description{
+    text-align: start;
+    white-space: pre-wrap;
+    font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
     color: #706F6F;
@@ -41,3 +45,32 @@
     display: flex;
     flex-direction: column;
 }
+
+.About__info{
+    width: fit-content;
+    height: fit-content;
+    max-width: 500px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 30px;
+    grid-template-columns: 210px 210px;
+    grid-template-rows: 120px 120px;
+
+    padding: 20px 20px 20px 20px;
+    background-color: var(--main-el-color);
+    border-radius: 20px;
+}
+.About__info__block{
+    height: 120px;
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: black; */
+}
+
+@media only screen and (max-width:840px){
+.About__discounts{
+    width: min-content;
+    flex-direction: column;
+}}
