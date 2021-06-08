@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './App.css';
+import { About } from "./comonents/About/About";
 import { Header } from './comonents/Header/Header';
 import { Menu } from "./comonents/Menu/Menu";
 import {TabContent} from './comonents/TabContent/TabContent';
@@ -9,7 +10,7 @@ function App() {
 
   const items = [
     { title: 'Меню', content: <Menu/> },
-    { title: 'О ресторане', content: <Menu/>},
+    { title: 'О ресторане', content: <About/>},
     { title: 'Бронь', content: <Tables/> },
   ];
 

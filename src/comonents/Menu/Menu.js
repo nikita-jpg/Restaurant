@@ -14,7 +14,6 @@ function Menu() {
 
     axios.get(apiUrl).then((resp) => {
         const allDishes = resp.data;
-        console.log(allDishes)
         setAppState(allDishes);
         });
     });

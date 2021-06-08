@@ -1,7 +1,7 @@
 .dish{
     width: 450px;
     height: 400px;
-    background-color: white;
+    background-color: var(--main-el-color);
     border-radius: 20px;
 
     display: flex;

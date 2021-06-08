@@ -1,0 +1,43 @@
+.About{
+    width: 100%;
+    height: auto;
+    background-color: var(--main-el-color);
+    border-radius: 20px;
+}
+.About__discounts{
+    max-width: 1400px;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.About__discount-block{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    width: 30%;
+    text-align: start;
+}
+.About__title_bold{
+    font-size: larger;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #3A3532;
+}
+.About__title_normal{
+    font-size: smaller;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #706F6F;
+}
+.About__logo{
+    flex-shrink: 0;
+    height: 42px;
+    width: 42px;
+    margin-top: 5px;
+    background-repeat: no-repeat;
+}
+.About__text-block{
+    display: flex;
+    flex-direction: column;
+}

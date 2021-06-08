@@ -1,7 +1,7 @@
 .tab{
     width: 100px;
     height: 30px;
-    background-color: #F2F5F8;
+    background-color: var(--main-bg-color);
     border: 2px transparent;
     border-style: solid;
     border-radius: 20px;

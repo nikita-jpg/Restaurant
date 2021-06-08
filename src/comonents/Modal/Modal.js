@@ -7,16 +7,9 @@ const Modal = ({modal, setModal}) => {
     const[inputName, setName] = useState("")
     const[inputSecondName, setSecondName] = useState("")
     const[inputTelNumber, setTelNumber] = useState("")
+    const[timeStart, setTimeStart] = useState("")
+    const[timeEnd, setTimeEnd] = useState("")
 
-    // let record = {
-    //     deskNumber:modal.tableId,
-    //     date: modal.date,
-    //     timeStart: "14:00",
-    //     timeEnd: "15:00",
-    //     clientName: inputName,
-    //     clientSecondName: inputSecondName,
-    //     clientTelNumber: inputTelNumber,
-    // }
 
     const sendRecord = () => {
         console.log(modal.freeTime)
@@ -63,11 +56,11 @@ const Modal = ({modal, setModal}) => {
                 <div>
                     <div className="modal__input">
                         <p className="modal__input__p">Начало</p>
-                        <input className="modal__input__input" value={inputTelNumber} onChange={(event) => setTelNumber(event.target.value)}></input>
+                        <input className="modal__input__input" value={timeStart} onChange={(event) => setTimeStart(event.target.value)}></input>
                     </div>
                     <div className="modal__input">
                         <p className="modal__input__p">Конец</p>
-                        <input className="modal__input__input" value={inputTelNumber} onChange={(event) => setTelNumber(event.target.value)}></input>
+                        <input className="modal__input__input" value={timeEnd} onChange={(event) => setTimeEnd(event.target.value)}></input>
                     </div>
                 </div>
                 </div>
