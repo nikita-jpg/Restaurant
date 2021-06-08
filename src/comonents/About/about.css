@@ -12,7 +12,7 @@
     background-color: var(--main-el-color);
     border-radius: 20px;
 }
-.About__discount__block{
+.About__discount-block{
     display: flex;
     flex-direction: row;
     gap:10px;
@@ -73,7 +73,7 @@
 }
 
 .About__contacts-container{
-    width: 212px;
+    width: 182px;
     height: 310px;
     display: flex;
     flex-wrap: wrap;
@@ -85,9 +85,9 @@
 }
 
 .About__contact{
-    width: 80px;
-    height: 80px;
-    background-color: black;
+    width: 70px;
+    height: 70px;
+    /* background-color: black; */
 }
 
 @media only screen and (max-width:840px){
