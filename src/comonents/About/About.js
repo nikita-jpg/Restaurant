@@ -43,12 +43,12 @@ const About = () => {
     }]
 
     const socialInfo = [
-        "./img/discount.svg",
-        "./img/discount.svg",
-        "./img/discount.svg",
-        "./img/discount.svg",
-        "./img/discount.svg",
-        "./img/discount.svg"
+        "./img/facebook.svg",
+        "./img/instagram.svg",
+        "./img/telegram.svg",
+        "./img/twitter.svg",
+        "./img/vk.svg",
+        "./img/youtube.svg"
     ]
 
     return(
@@ -66,7 +66,7 @@ const About = () => {
                 ))}
             </div>
             <div className="About__info">
-            <div className="About__contacts-container">
+                <div className="About__contacts-container">
                 {
                     socialInfo.map(img => (
                         <div className="About__contact" style={{backgroundImage: `url(${img})`}}></div>
