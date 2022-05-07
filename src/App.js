@@ -8,31 +8,81 @@ import { Tables } from "./comonents/Tables/Tables";
 
 const testData = [
   {
-    title: "Ролл-донер",
+    title: "Milk",
     description:
       "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
     id: 0,
+    type: "Milk",
   },
   {
-    title: "Ролл-донер",
+    title: "Fish",
     description:
       "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
     id: 1,
+    type: "Fish",
   },
   ,
   {
-    title: "Ролл-донер",
+    title: "Vegetables",
     description:
       "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
     id: 2,
+    type: "Vegetables",
   },
 ];
-
+const testData2 = [
+  {
+    title: "Milk",
+    description:
+      "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
+    id: 3,
+    type: "Fish",
+  },
+  {
+    title: "Fish",
+    description:
+      "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
+    id: 4,
+    type: "Fish",
+  },
+  ,
+  {
+    title: "Vegetables",
+    description:
+      "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
+    id: 5,
+    type: "Fish",
+  },
+];
+const testData3 = [
+  {
+    title: "Milk",
+    description:
+      "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
+    id: 6,
+    type: "Vegetables",
+  },
+  {
+    title: "Fish",
+    description:
+      "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
+    id: 7,
+    type: "Vegetables",
+  },
+  ,
+  {
+    title: "Vegetables",
+    description:
+      "Домашний лаваш, мясо говядины и баранины, помидоры, соленые огурцы, картофель по-деревенски, домашний лаваш",
+    id: 8,
+    type: "Vegetables",
+  },
+];
 function App() {
   const items = [
-    { title: "Молочка", content: <Menu data={testData} /> },
-    { title: "Рыба", content: <Menu data={testData} /> },
-    { title: "Овощи", content: <Menu data={testData} /> },
+    // { title: "Молочка", content: <Menu data={testData} type="Milk" /> },
+    { title: "Рыба", content: <Menu data={testData2} type="Fish" /> },
+    { title: "Овощи", content: <Menu data={testData3} type="Vegetables" /> },
     { title: "Корзина", content: <Tables /> },
   ];
 
@@ -46,7 +96,7 @@ function App() {
         setTab={openTab}
         activeNumber={activeNumber}
       ></Header>
-      <TabContent {...items[activeNumber]} />
+      <TabContent items={items} activeNumber={activeNumber} />
     </div>
   );
 }

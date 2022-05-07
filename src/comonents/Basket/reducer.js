@@ -8,6 +8,8 @@ export const basketReducer = (state = initialState, action) => {
       let purchases = state.Purchases;
       let hasPurchase = false;
 
+      // console.log(purchases);
+
       purchases.map((purchase) => {
         if (purchase.id === newPurchase.id) {
           purchase.quanity = newPurchase.quanity;
