@@ -1,16 +1,21 @@
-import { el } from "date-fns/locale";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Add_to_Basket } from "../Basket/actions";
 import "../Dish/dish.css";
 import { Tab } from "../Tab/Tab";
-const Dish = ({ title, description, img }) => {
+const Dish = ({ title, description, img, id = 0 }) => {
+  const dispatch = useDispatch();
   const [quanity, setQuanity] = useState(0);
+
   const setQuanityWithCheck = (newQuanity) => {
     if (newQuanity < 0) {
       setQuanity(0);
     } else {
       setQuanity(newQuanity);
+      dispatch(Add_to_Basket({ id: id, quanity: newQuanity }));
     }
   };
+
   return (
     <div className="dish">
       <div className="dish_img" style={img}></div>

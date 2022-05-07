@@ -7,10 +7,12 @@ import { getPurchasesQuantity } from "../Basket/selectors";
 
 const Header = ({ tabsNames, setTab, activeNumber }) => {
   const basketQuantity = useSelector(getPurchasesQuantity);
+  // console.log(basketQuantity);
 
   return (
     <div className="header header_inside">
       <img src={logo} className="header__logo" />
+
       <div className="header__central_btn">
         {tabsNames.slice(0, tabsNames.length - 1).map((n, i) => (
           <Tab
@@ -21,6 +23,7 @@ const Header = ({ tabsNames, setTab, activeNumber }) => {
           ></Tab>
         ))}
       </div>
+
       <Tab
         text={
           tabsNames[tabsNames.length - 1].title +
