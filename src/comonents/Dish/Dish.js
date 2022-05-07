@@ -5,7 +5,8 @@ import { getPurchaseQuantityById } from "../Basket/selectors";
 import "../Dish/dish.css";
 import { getProductById } from "../Menu/selectors";
 import { Tab } from "../Tab/Tab";
-const Dish = ({ title, description, img, id = 0 }) => {
+
+const Dish = ({ img, id = 0 }) => {
   const dispatch = useDispatch();
 
   const product = useSelector(getProductById(id));
@@ -24,7 +25,12 @@ const Dish = ({ title, description, img, id = 0 }) => {
 
   return (
     <div className="dish">
-      <div className="dish_img" style={img}></div>
+      <div
+        className="dish_img"
+        style={{
+          backgroundImage: `url(${product.img})`,
+        }}
+      ></div>
       <div className="dish_title">{product.title}</div>
       <p className="dish_description">{product.description}</p>
       <div className="dish_btns">

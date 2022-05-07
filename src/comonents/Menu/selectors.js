@@ -22,3 +22,5 @@ export const getProductById = (id) => (state) => {
 
   return neededProduct;
 };
+
+export const getProducts = (state) => state.Products.Products;
