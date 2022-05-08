@@ -15,6 +15,7 @@ const testData = [
     id: 0,
     type: "Milk",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
   {
     title: "Fish",
@@ -23,6 +24,7 @@ const testData = [
     id: 1,
     type: "Fish",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
   ,
   {
@@ -32,6 +34,7 @@ const testData = [
     id: 2,
     type: "Vegetables",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
 ];
 const testData2 = [
@@ -42,6 +45,7 @@ const testData2 = [
     id: 3,
     type: "Fish",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
   {
     title: "Fish",
@@ -50,6 +54,7 @@ const testData2 = [
     id: 4,
     type: "Fish",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
   ,
   {
@@ -59,6 +64,7 @@ const testData2 = [
     id: 5,
     type: "Fish",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
 ];
 const testData3 = [
@@ -69,6 +75,7 @@ const testData3 = [
     id: 6,
     type: "Vegetables",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
   {
     title: "Fish",
@@ -77,6 +84,7 @@ const testData3 = [
     id: 7,
     type: "Vegetables",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
   ,
   {
@@ -86,6 +94,7 @@ const testData3 = [
     id: 8,
     type: "Vegetables",
     img: "https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg",
+    price: 200,
   },
 ];
 function App() {

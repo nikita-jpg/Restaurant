@@ -12,10 +12,11 @@
 }
 
 .dish_title {
-  display: inline;
+  display: flex;
+  justify-content: space-between;
   text-align: left;
   width: 100%;
-  padding: 15px 0 0 10px;
+  margin-top: 20px;
   font-size: 18px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
