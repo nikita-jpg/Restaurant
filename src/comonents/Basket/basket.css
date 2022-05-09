@@ -4,8 +4,27 @@
   background-color: var(--main-el-color);
   border-radius: 20px;
   padding: 30px;
+  padding-bottom: 0;
 
-  display: block;
+  display: flex;
+  justify-content: space-between;
+}
+.basket_rows {
+  /* width: auto;
+  height: auto;
+  background-color: var(--main-el-color);
+  border-radius: 20px;
+  padding: 30px;
+
+  display: block; */
 }
 .basket_product {
+}
+
+.basket_total {
+  padding: 15px;
+  font-size: 20px;
+}
+.basket_totalBtn {
+  padding-top: 15px;
 }

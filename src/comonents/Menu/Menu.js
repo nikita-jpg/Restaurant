@@ -13,7 +13,6 @@ const Menu = ({ apiUrl = "http://localhost:8080/menu", data, type }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("products");
     // axios.get(apiUrl).then((resp) => {
     //   const allDishes = resp.data;
     //   setAppState(allDishes);
