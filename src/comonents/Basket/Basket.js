@@ -5,6 +5,7 @@ import { getProducts } from "../Menu/selectors";
 import { RowDish } from "../Dish/RowDish";
 import { useState } from "react";
 import { Tab } from "../Tab/Tab";
+import { Modal } from "../Modal/Modal";
 
 const Basket = ({}) => {
   const purchases = useSelector(getPurchases);
@@ -32,8 +33,25 @@ const Basket = ({}) => {
     setTotalPrice(test);
   };
 
+  const [modal, setModal] = useState({
+    isOpen: false,
+    tableId: 0,
+    freeTime: [],
+    date: "",
+  });
+
+  const openModal = () => {
+    setModal({
+      isOpen: true,
+      tableId: 0,
+      freeTime: [],
+      date: "",
+    });
+  };
+
   return (
     <div className="basket">
+      <Modal modal={modal} setModal={setModal}></Modal>
       <div className="basket_rows">
         {purchases.map((purchase, i) => (
           <RowDish
@@ -56,6 +74,7 @@ const Basket = ({}) => {
         <div className="basket_totalBtn">
           <Tab
             text={"Купить"}
+            setState={openModal}
             // setState={setTab}
             // index={i}
             // isActive={i === activeNumber ? true : false}
