@@ -1,6 +1,6 @@
 .dish {
   width: 450px;
-  height: 400px;
+  height: 460px;
   background-color: var(--main-el-color);
   border-radius: 20px;
 
@@ -16,22 +16,41 @@
   justify-content: space-between;
   text-align: left;
   width: 100%;
-  margin-top: 20px;
+  height: 50px;
+  margin-top: 30px;
   font-size: 18px;
   font-family: "Lato", sans-serif;
   font-weight: bold;
 }
+.dish_title_name {
+  padding-left: 2px;
+  max-width: 300px;
+  /* text-overflow: "ellipsis";
+  overflow: "hidden";
+  height: "50px"; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .dish_description {
   width: 100%;
+  height: 40px;
+  line-height: 1.33;
   padding: 15px 0 0 5px;
   text-align: left;
-  line-height: 1.33;
-  font-family: "Lato", sans-serif;
   color: #b0b0b0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dish_img {
-  width: 100%;
+  /* width: 100%; */
   height: 240px;
   border-radius: 20px;
 

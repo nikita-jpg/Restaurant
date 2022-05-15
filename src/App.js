@@ -99,7 +99,7 @@ const testData3 = [
 ];
 function App() {
   const items = [
-    // { title: "Молочка", content: <Menu data={testData} type="Milk" /> },
+    { title: "Молочка", content: <Menu data={testData} type="Milk" /> },
     { title: "Рыба", content: <Menu data={testData2} type="Fish" /> },
     { title: "Овощи", content: <Menu data={testData3} type="Vegetables" /> },
     { title: "Корзина", content: <Basket /> },

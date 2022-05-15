@@ -57,7 +57,6 @@ const Dish = ({ img, id = 0 }) => {
         imageName: img,
         data: res,
       });
-      console.log(res);
     });
   }, []);
 
@@ -65,8 +64,10 @@ const Dish = ({ img, id = 0 }) => {
     <div className="dish">
       <img src={image.data} className="dish_img"></img>
       <div className="dish_title">
-        <div style={{ paddingLeft: "5px" }}>{product.title}</div>
-        <div style={{ paddingRight: "5px" }}>{product.price} ₽</div>
+        <div className="dish_title_name">{product.title}</div>
+        <div style={{ paddingRight: "5px", minWidth: "50px" }}>
+          {product.price} ₽
+        </div>
       </div>
       <p className="dish_description">{product.description}</p>
       <div className="dish_btns">

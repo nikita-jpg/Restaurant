@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Add_to_Basket } from "../Basket/actions";
@@ -7,6 +8,29 @@ import { getProductById } from "../Menu/selectors";
 import { Tab } from "../Tab/Tab";
 
 const RowDish = ({ img, id = 0, changeTotalPrice = () => {} }) => {
+  //Для запросов на сервер
+  const http = axios.create({
+    headers: {
+      // Прикрепляем заголовок, отвечающий за параметры запуска.
+      Authorization: "12345",
+    },
+  });
+
+  async function downloadImageFromServer(imageName) {
+    const image = await http
+      .get(
+        "http://127.0.0.1:18301/" + "getImage?imageName=" + imageName + ".webp",
+        {
+          responseType: "arraybuffer",
+        }
+      )
+      .then((response) =>
+        Buffer.from(response.data, "binary").toString("base64")
+      );
+
+    return `data:image/jpeg;base64,${image}`;
+  }
+
   const dispatch = useDispatch();
 
   const product = useSelector(getProductById(id));
@@ -32,14 +56,26 @@ const RowDish = ({ img, id = 0, changeTotalPrice = () => {} }) => {
 
   changeTotalPrice(startQuanity * product.price);
 
+  const [image, setImage] = useState({
+    imageName: null,
+    data: null,
+  });
+
+  useEffect(() => {
+    downloadImageFromServer(product.img).then((res) => {
+      console.log(res);
+      setImage({
+        imageName: img,
+        data: res,
+      });
+    });
+  }, []);
+
   return (
     <div className="rowDish">
-      <div
-        className="rowDish_img"
-        style={{
-          backgroundImage: `url(${product.img})`,
-        }}
-      ></div>
+      <div style={{ width: "240px", height: "240px", marginRight: "40px" }}>
+        <img className="rowDish_img" src={image.data}></img>
+      </div>
       <div className="rowDish_titleAndDescription">
         <div className="rowDish_title">{product.title}</div>
         <p className="rowDish_description">{product.description}</p>
