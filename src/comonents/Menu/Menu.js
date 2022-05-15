@@ -6,24 +6,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { Add_to_Menu } from "./actions";
 import { getTypedProducts } from "./selectors";
 
-const Menu = ({ apiUrl = "http://localhost:8080/menu", data, type }) => {
+const Menu = ({ apiUrl = "http://127.0.0.1:18301/menu", data, type }) => {
   const [appState, setAppState] = useState([]);
   // const apiUrl = "http://localhost:8080/menu";
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // axios.get(apiUrl).then((resp) => {
-    //   const allDishes = resp.data;
-    //   setAppState(allDishes);
+  const http = axios.create({
+    headers: {
+      // Прикрепляем заголовок, отвечающий за параметры запуска.
+      Authorization: "12345",
+    },
+  });
 
-    //   // allDishes.map((dish) => {
-    //   //   dispatch.apply(Add_to_Menu(dish));
-    //   // });
-    // });
-    data.map((dish) => {
-      dispatch(Add_to_Menu(dish));
+  useEffect(() => {
+    http.get(apiUrl).then((resp) => {
+      const allDishes = resp.data;
+      setAppState(allDishes);
+      console.log(allDishes);
+
+      allDishes.map((dish) => {
+        dispatch(Add_to_Menu(dish));
+      });
     });
+    // data.map((dish) => {
+    //   dispatch(Add_to_Menu(dish));
+    // });
   }, []);
 
   const newData = useSelector(getTypedProducts(type));
