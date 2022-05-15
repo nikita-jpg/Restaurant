@@ -41,9 +41,10 @@ const Menu = ({ apiUrl = "http://127.0.0.1:18301/menu", data, type }) => {
       {newData.map((dish) => (
         <Dish
           //img={{ backgroundImage: `url(${apiUrl + "/" + dish.id})` }}
-          img={{
-            backgroundImage: `url(${"https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg"})`,
-          }}
+          // img={{
+          //   backgroundImage: `url(${"https://www.sunhome.ru/i/wallpapers/73/krasnoe-selo.orig.jpg"})`,
+          // }}
+          img={dish.img}
           id={dish.id}
         ></Dish>
       ))}
