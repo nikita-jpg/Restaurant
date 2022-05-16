@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import "./modal.css";
 
 const Modal = ({ modal, setModal }) => {
-  const makeRecordUri = "http://localhost:8080/booking/makeRecord?";
   const [inputName, setName] = useState("");
   const [inputAddress, setAddress] = useState("");
   const [inputTelNumber, setTelNumber] = useState("");
@@ -12,12 +11,29 @@ const Modal = ({ modal, setModal }) => {
   const [timeEnd, setTimeEnd] = useState("");
   const [comment, setComment] = useState("");
 
+  const [visibleModalNumber, setVisibleModalNumber] = useState(0);
+
   const http = axios.create({
     headers: {
       // Прикрепляем заголовок, отвечающий за параметры запуска.
       Authorization: "12345",
     },
   });
+
+  const closeModal = () => {
+    setModal({ isOpen: false, freeTime: [] });
+    setVisibleModalNumber(0);
+  };
+
+  const clearInputs = () => {
+    setName("");
+    setAddress("");
+    setTelNumber("");
+    setDate("");
+    setTimeStart("");
+    setTimeEnd("");
+    setComment("");
+  };
 
   const sendRecord = () => {
     http
@@ -29,27 +45,14 @@ const Modal = ({ modal, setModal }) => {
         timeStart: timeStart,
         timeEnd: timeEnd,
       })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    // .then((data) => {
-    //   return data.data;
-    // })
-    // .catch((data) => {
-    //   return null;
-    // });
-    // console.log(modal.freeTime);
-    // axios({
-    //   method: "post",
-    //   url: makeRecordUri,
-    //   params: {
-    //     name: inputName,
-    //     adress: inputAddress,
-    //     foneNumber: inputTelNumber,
-    //     date: inputDate,
-    //     timeStart: timeStart,
-    //     timeEnd: timeEnd,
-    //   },
-    // });
+      .then(() => {
+        clearInputs();
+        setVisibleModalNumber(1);
+      })
+      .catch(() => {
+        clearInputs();
+        setVisibleModalNumber(2);
+      });
   };
 
   return (
@@ -57,9 +60,15 @@ const Modal = ({ modal, setModal }) => {
       className={
         modal.isOpen ? "modal__background modal_active" : "modal__background"
       }
-      onClick={() => setModal({ isOpen: false, freeTime: [] })}
+      onClick={() => closeModal()}
     >
-      <div className="modal__content" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal__content"
+        style={{
+          display: `${visibleModalNumber === 0 ? "" : "none"}`,
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal__input">
           <p className="modal__input__p">Введите ваше имя</p>
           <input
@@ -137,6 +146,26 @@ const Modal = ({ modal, setModal }) => {
         <button className="modal__btn" onClick={sendRecord}>
           Отправить
         </button>
+      </div>
+
+      <div
+        className="modal__content"
+        style={{
+          display: `${visibleModalNumber === 1 ? "" : "none"}`,
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        Успех
+      </div>
+
+      <div
+        className="modal__content"
+        style={{
+          display: `${visibleModalNumber === 2 ? "" : "none"}`,
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        Не успех
       </div>
     </div>
   );
